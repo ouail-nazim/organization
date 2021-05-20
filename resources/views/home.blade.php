@@ -2,8 +2,8 @@
 
 @section('main-content')
 
- @section('content_header')
-    <h1>Dashboard</h1>
+    @section('content_header')
+        <h1>chahi</h1>
     @endsection
 
     @section('content')
