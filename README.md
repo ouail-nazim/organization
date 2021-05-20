@@ -20,6 +20,8 @@ npm run dev
 php artisan key:generate
 ```
 
+## you need to add you BD in your .env file
+
 ```
 php artisan migrate
 ```
