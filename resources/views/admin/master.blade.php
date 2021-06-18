@@ -1,17 +1,24 @@
 @extends('adminlte::page')
 
 @section('css')
+  <link rel="shortcut icon" href="{{ asset('images/avatar.svg') }}" type="image/x-icon"/>
     {{-- <link rel="stylesheet" href="/css/admin_custom.css"> --}}
 @stop
 
-@section('title', 'Enseignant')
+@section('title')
+  {{_('admin pannel')}} | {{setting("app_name")}}
+@endsection
 {{-- content_top_nav_left --}}
 @section('content_top_nav_left')
     <li class="nav-item d-none d-sm-inline-block">
-        <a href="/" class="nav-link">Home</a>
+        <a href="{{route("admin.home")}}" class="nav-link">
+          {{__('Dashboard')}} 
+        </a>
     </li>
     <li class="nav-item d-none d-sm-inline-block">
-        <a href="/" class="nav-link">About</a>
+      <a href="{{route("home")}}" class="nav-link">
+        {{__('Web Site Home')}} 
+      </a>
     </li>
 @endsection
 {{-- content_top_nav_right --}}
@@ -28,6 +35,14 @@
         </div>
   </form>
 @endsection
+@section('usermenu_header')
+  <a href="#" class="dropdown-item docs-creator m-1">
+    <i class="fas fa-user mr-2"></i> Profile
+  </a>
+  <a href="#" class="dropdown-item docs-creator m-1">
+    <i class="fas fa-cogs mr-2"></i> Modifier mon profile
+  </a>
+@endsection
 
 
 @section('left-side-bar')
@@ -43,80 +58,38 @@
         
         <!-- Sidebar Menu -->
         <nav class="mt-2">
-          <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-            <!-- Add icons to the links using the .nav-icon class
-                 with font-awesome or any other icon font library -->
-            
+          <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">     
             <li class="nav-item has-treeview">
               <a href="#" class="nav-link">
                 <i class="nav-icon fas fa-user-graduate"></i>
                 <p>
-                  Mes etudiantes
+                  Etudiantes
                   <i class="right fas fa-angle-left"></i>
                 </p>
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="./listDesBinomes.html" class="nav-link">
-                    <i class="fas fa-people-arrows nav-icon"></i>
-                    <p>List des binomes</p>
+                  <a href="/" class="nav-link">
+                    <i class="fas fa-user-check nav-icon"></i>
+                    <p>Choix de Etudiantes</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="./addnewBinome.html" class="nav-link">
-                    <i class="fas fa-user-plus nav-icon"></i>
-                    <p>Ajouter un binome</p>
+                  <a href="/" class="nav-link">
+                    <i class="fas fa-chart-pie nav-icon"></i>
+                    <p>Repartition</p>
                   </a>
                 </li>
               </ul>
-            </li>
-            <li class="nav-item has-treeview">
+            </li> 
+            <li class="nav-item">
               <a href="#" class="nav-link">
-                <i class="nav-icon far fa-folder-open"></i>
+                <i class="nav-icon fas fa-chalkboard-teacher"></i>
                 <p>
-                  Mes Documents
-                  <i class="right fas fa-angle-left"></i>
+                  List des enseignants
                 </p>
               </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="./document_list.html" class="nav-link">
-                    <i class="fas fa-file nav-icon"></i>
-                    <p>List des documents</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="./addnewDocument.html" class="nav-link">
-                    <i class="fas fa-file-medical nav-icon"></i>
-                    <p>Ajouter un docuemnt</p>
-                  </a>
-                </li>
-              </ul>
-            </li>  
-            
-            <li class="nav-item has-treeview">
-              <a href="#" class="nav-link">
-                <i class="nav-icon fas fa-paperclip"></i>
-                <p>
-                  Mes Brouillons
-                  <i class="right fas fa-angle-left"></i>
-                </p>
-              </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="#" class="nav-link">
-                    <i class="fas fa-sticky-note nav-icon"></i>
-                    <p>List des Brouillons</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="pages/charts/flot.html" class="nav-link">
-                    <i class="fas fa-file-medical nav-icon"></i>
-                    <p>Ajouter un Brouillon</p>
-                  </a>
-                </li>
-              </ul>
-            </li>            
+            </li>          
           </ul>
         </nav>
         <!-- /.sidebar-menu -->
@@ -127,10 +100,10 @@
 @yield('main-content')
 
 @section('footer')
-    <strong>Copyright &copy; 2020-2021 <a href="#">{{config('app.name')}}</a>.</strong>
+    <strong>Copyright &copy; 2020-2021 <a href="#" class="text-success" >{{setting('app_name')}}</a>.</strong>
         All rights reserved.
     <div class="float-right d-none d-sm-inline-block">
-        <b>Version</b> Beta 1.0
+        <b>Version</b> {{setting('app_version')}}
     </div>
 @endsection
 
