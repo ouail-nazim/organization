@@ -31,7 +31,7 @@
               <div class="hidden md:block md:ml-10 md:pr-4 md:space-x-8">
                 <a href="#" class="font-medium text-gray-500 hover:text-gray-900">Product</a>
   
-                <a href="#" class="font-medium text-gray-500 hover:text-gray-900">Features</a>
+                <a href="#" class="font-medium text-gray-500 hover:text-gray-900">Featuhhhhres</a>
   
                 <a href="#" class="font-medium text-gray-500 hover:text-gray-900">Marketplace</a>
   
@@ -102,7 +102,7 @@
               </div>
               <div class="mx-3">
                 <a href="#" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-indigo-700 bg-green hover:bg-indigo-200 md:py-4 md:text-lg md:px-10">
-                  Live demo
+                  test
                 </a>
               </div>
             </div>

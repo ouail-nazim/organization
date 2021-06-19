@@ -17,3 +17,5 @@ Route::prefix('/admin')->group(function () {
 Route::redirect('/home', '/admin/home', 301);
 
 Route::get('/', [App\Http\Controllers\guest\HomeController::class, 'index'])->name('home');
+#TODO
+// add index page
