@@ -20,6 +20,11 @@
   --white: #fff;
   --gray: #6c757d;
   --gray-dark: #343a40;
+  --main: var(--main_color);
+  --secondary: var(--secondary_color);
+  --black: #333;
+  --gray: #ccc;
+  --white: #fff;
   --primary: #3490dc;
   --secondary: #6c757d;
   --success: #38c172;

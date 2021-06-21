@@ -19,5 +19,6 @@ class AppSeeder extends Seeder
         App_setting::create(["key" => "app_version", "value" => "1.0.0"]);
         App_setting::create(["key" => "main_color", "value" => "#DC143C"]);
         App_setting::create(["key" => "secondary_color", "value" => "#32CD32"]);
+        App_setting::create(["key" => "logo_cover", "value" => "https://www.pngitem.com/pimgs/m/241-2413983_corsair-logo-png-white-transparent-png.png"]);
     }
 }

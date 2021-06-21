@@ -1,4 +1,17 @@
 {
-    "Dashboard":"Dashboard",
-    "Web Site Home":"Web Site Home"
+    "Dashboard": "Dashboard",
+    "Web Site Home": "Web Site Home",
+    "DZ":"People's Democratic Republic of Algeria",
+    "home": "Home",
+    "news": "News",
+    "goals": "Goals",
+    "meetings":"Meetings",
+    "read more":"Read more",
+    "members":"Members",
+    "contact_us":"Contact Us",
+    "mobile number":"Mobile Number",
+    "phone number":"Phone Number",
+    "email":"Email",
+    "address":"Address"
 }
+    

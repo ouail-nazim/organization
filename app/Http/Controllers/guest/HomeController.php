@@ -11,4 +11,24 @@ class HomeController extends Controller
     {
         return view("guest.welcome");
     }
+    function news()
+    {
+        return view("guest.news");
+    }
+    function goals()
+    {
+        return view("guest.goals");
+    }
+    function meetings()
+    {
+        return view("guest.meetings");
+    }
+    function members()
+    {
+        return view("guest.members");
+    }
+    function contactUs()
+    {
+        return view("guest.contactUs");
+    }
 }

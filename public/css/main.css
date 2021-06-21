@@ -31865,14 +31865,6 @@ video {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.bg-red {
-  background-color: var(--main_color);
-}
-
-.bg-green {
-  background-color: var(--secondary_color);
-}
-
 @media (min-width: 640px) {
   .sm\:container {
     width: 100%;
@@ -187687,4 +187679,5 @@ video {
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   }
 }
+
 

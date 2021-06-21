@@ -1,7 +1,7 @@
 @extends('adminlte::page')
 
 @section('css')
-  <link rel="shortcut icon" href="{{ asset('images/avatar.svg') }}" type="image/x-icon"/>
+  <link rel="shortcut icon" href="{{setting('logo_cover')}}" type="image/x-icon"/>
     {{-- <link rel="stylesheet" href="/css/admin_custom.css"> --}}
 @stop
 
@@ -83,10 +83,10 @@
               </ul>
             </li> 
             <li class="nav-item">
-              <a href="#" class="nav-link">
-                <i class="nav-icon fas fa-chalkboard-teacher"></i>
+              <a href="{{route("admin.setting")}}" class="nav-link">
+                <i class="nav-icon fas fa-cogs"></i>
                 <p>
-                  List des enseignants
+                  Setting
                 </p>
               </a>
             </li>          

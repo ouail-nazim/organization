@@ -1,0 +1,47 @@
+@import "variables";
+@import url("https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Amiri", serif;
+}
+
+body {
+    background: color(white);
+}
+
+.text-black {
+    color: color(black);
+}
+.text-green {
+    color: color(secondary);
+}
+.text-red {
+    color: color(main);
+}
+.bg-green {
+    background-color: color(secondary);
+}
+.bg-red {
+    background-color: color(main);
+}
+.nav-link {
+    cursor: pointer;
+    &:hover {
+        color: color(main);
+    }
+}
+.sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #fff;
+    z-index: 99;
+    width: 100vw;
+}
+main {
+    min-height: 60.5vh;
+}

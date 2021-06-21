@@ -16,14 +16,15 @@
     @endif>
 
     {{-- Small brand logo --}}
-    <img src="{{ asset(config('adminlte.logo_img', 'vendor/adminlte/dist/img/AdminLTELogo.png')) }}"
+    <img src="{{setting('logo_cover')}}"
          alt="{{ config('adminlte.logo_img_alt', 'AdminLTE') }}"
-         class="{{ config('adminlte.logo_img_class', 'brand-image img-circle elevation-3') }}"
-         style="opacity:.8">
+         class="{{ config('adminlte.logo_img_class') }}"
+         class="profile-user-img img-fluid img-circle"
+         style="opacity:.8 ; width: 40px;height: 50px; border-radius: 50%">
 
     {{-- Brand text --}}
     <span class="brand-text font-weight-light {{ config('adminlte.classes_brand_text') }}">
-        {!! config('adminlte.logo', '<b>Admin</b>LTE') !!}
+        {{setting('app_name')}}
     </span>
 
 </a>

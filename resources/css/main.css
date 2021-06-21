@@ -2,9 +2,3 @@
 @tailwind components;
 @tailwind utilities;
 
-.bg-red {
-    background-color: var(--main_color);
-}
-.bg-green {
-    background-color: var(--secondary_color);
-}

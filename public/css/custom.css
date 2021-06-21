@@ -1,0 +1,52 @@
+@import url(https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&display=swap);
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Amiri", serif;
+}
+
+body {
+  background: #fff;
+}
+
+.text-black {
+  color: #333;
+}
+
+.text-green {
+  color: var(--secondary_color);
+}
+
+.text-red {
+  color: var(--main_color);
+}
+
+.bg-green {
+  background-color: var(--secondary_color);
+}
+
+.bg-red {
+  background-color: var(--main_color);
+}
+
+.nav-link {
+  cursor: pointer;
+}
+.nav-link:hover {
+  color: var(--main_color);
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: #fff;
+  z-index: 99;
+  width: 100vw;
+}
+
+main {
+  min-height: 60.5vh;
+}
