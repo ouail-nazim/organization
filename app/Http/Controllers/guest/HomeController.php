@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\guest;
 
 use App\Http\Controllers\Controller;
+use App\Models\Goals;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -17,7 +18,8 @@ class HomeController extends Controller
     }
     function goals()
     {
-        return view("guest.goals");
+        $goals = Goals::where('lang', currentLocale())->get();
+        return view("guest.goals")->with(["goals" => $goals]);
     }
     function meetings()
     {

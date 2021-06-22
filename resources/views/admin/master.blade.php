@@ -61,23 +61,23 @@
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">     
             <li class="nav-item has-treeview">
               <a href="#" class="nav-link">
-                <i class="nav-icon fas fa-user-graduate"></i>
+                <i class="nav-icon fas fa-bullseye"></i>
                 <p>
-                  Etudiantes
+                  Goals
                   <i class="right fas fa-angle-left"></i>
                 </p>
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="/" class="nav-link">
-                    <i class="fas fa-user-check nav-icon"></i>
-                    <p>Choix de Etudiantes</p>
+                  <a href="{{route("admin.goals.list")}}" class="nav-link">
+                    <i class="fas fa-list nav-icon"></i>
+                    <p>Goals list</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="/" class="nav-link">
-                    <i class="fas fa-chart-pie nav-icon"></i>
-                    <p>Repartition</p>
+                  <a href="{{route("admin.add.goal")}}" class="nav-link">
+                    <i class="fas fa-plus-circle nav-icon"></i>
+                    <p>Add Goals</p>
                   </a>
                 </li>
               </ul>

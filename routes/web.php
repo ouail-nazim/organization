@@ -14,6 +14,12 @@ Route::prefix('/admin')->group(function () {
         Route::get('/setting', [App\Http\Controllers\HomeController::class, 'setting'])->name('setting');
         Route::put('/setting/{id}', [App\Http\Controllers\HomeController::class, 'editSetting'])->name('setting.edit');
         Route::put('/logo_cover', [App\Http\Controllers\HomeController::class, 'logoCover'])->name('update.logo_cover');
+
+        Route::get('/goals', [App\Http\Controllers\admin\GoalsController::class, 'index'])->name('goals.list');
+        Route::get('/addGoal', [App\Http\Controllers\admin\GoalsController::class, 'create'])->name('add.goal');
+        Route::post('/addGoal', [App\Http\Controllers\admin\GoalsController::class, 'store'])->name('add.goal');
+        Route::put('/editGoal', [App\Http\Controllers\admin\GoalsController::class, 'edit'])->name('goal.edit');
+        Route::delete('/deleteGoal/{goal:id}', [App\Http\Controllers\admin\GoalsController::class, 'destroy'])->name('goal.destroy');
     });
 });
 

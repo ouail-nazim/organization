@@ -11,17 +11,17 @@
 				<img class="h-48" src="{{ asset('/images/goal.svg')}}" alt="goal">
 			</div>
 			<ol class="list-decimal py-3 flex flex-col">
-				<li class="flex @if(isRTL())flex-row-reverse text-right @else flex-row @endif  py-2 text-xl">
-					<div class="flex @if(isRTL())flex-row ml-2 @else flex-row-reverse mr-2 @endif ">
-            <span>@if(isRTL()) ( @else ) @endif</span>
-            <span>1</span>
-          </div>
-					<div>
-						العناية بتاريخ المملكة العربية السعودية والجزيرة العربية بصورة خاصة, والتاريخ الإسلامي بصورة
-						عامة, دراسة وتوثيقاً وتحقيقاً ، من خلال المؤتمرات العلمية، وإصدار المطبوعات المختلفة
-					</div>
-				</li>
-				
+				@foreach ($goals as $goal)
+          <li class="flex @if(isRTL())flex-row-reverse text-right @else flex-row @endif  py-2 text-xl">
+            <div class="flex @if(isRTL())flex-row ml-2 @else flex-row-reverse mr-2 @endif ">
+              <span>@if(isRTL()) ( @else ) @endif</span>
+              <span>{{$loop->index + 1}}</span>
+            </div>
+            <div>
+             {{$goal->description}}
+            </div>
+          </li>
+        @endforeach
 			</ol>
     </section>
   </main>
