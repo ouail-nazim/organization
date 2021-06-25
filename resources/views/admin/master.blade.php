@@ -3,6 +3,7 @@
 @section('css')
   <link rel="shortcut icon" href="{{setting('logo_cover')}}" type="image/x-icon"/>
     {{-- <link rel="stylesheet" href="/css/admin_custom.css"> --}}
+    @yield('style')
 @stop
 
 @section('title')
@@ -80,6 +81,52 @@
                     <p>Add Goals</p>
                   </a>
                 </li>
+              </ul>
+            </li>
+            <li class="nav-item has-treeview">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-users-cog"></i>
+                <p>
+                  Members
+                  <i class="right fas fa-angle-left"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="{{route("admin.members.list")}}" class="nav-link">
+                    <i class="fas fa-list nav-icon"></i>
+                    <p>Members list</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="{{route("admin.add.member")}}" class="nav-link">
+                    <i class="fas fa-plus-circle nav-icon"></i>
+                    <p>Add Member</p>
+                  </a>
+                </li>
+                <li class="nav-item has-treeview">
+                  <a href="#" class="nav-link">
+                    <i class="nav-icon fas fa-chess-queen"></i>
+                    <p>
+                      Grades
+                      <i class="right fas fa-angle-left"></i>
+                    </p>
+                  </a>
+                  <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                      <a href="{{route("admin.grades.list")}}" class="nav-link">
+                        <i class="fas fa-list nav-icon"></i>
+                        <p>Grades list</p>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="{{route("admin.add.grade")}}" class="nav-link">
+                        <i class="fas fa-plus-circle nav-icon"></i>
+                        <p>Add Grades</p>
+                      </a>
+                    </li>
+                  </ul>
+                </li> 
               </ul>
             </li> 
             <li class="nav-item">

@@ -6,13 +6,17 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Goals extends Model
+class Grade extends Model
 {
     use HasFactory;
     use SoftDeletes;
 
     protected $fillable = [
-        "description",
-        "lang"
+        'grade'
     ];
+
+    public function members()
+    {
+        return $this->hasMany(Member::class)->latest();
+    }
 }

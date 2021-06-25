@@ -41,12 +41,12 @@ class HomeController extends Controller
     public function logoCover(Request $request)
     {
 
-        $attributes = request()->validate([
+        request()->validate([
             'logo_cover' => ['required', 'image', 'mimes:png,jpg,jpeg,svg']
         ]);
         if (request('logo_cover')) {
             App_setting::where('key', 'logo_cover')->first()->update([
-                "value" => str_replace("public", "/storage", request('logo_cover')->store('public/logo_covers'))
+                "value" => "/storage/" . request('logo_cover')->store('logo_covers')
             ]);
         }
         return redirect()->back();

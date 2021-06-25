@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Member;
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('/admin')->group(function () {
@@ -20,6 +21,17 @@ Route::prefix('/admin')->group(function () {
         Route::post('/addGoal', [App\Http\Controllers\admin\GoalsController::class, 'store'])->name('add.goal');
         Route::put('/editGoal', [App\Http\Controllers\admin\GoalsController::class, 'edit'])->name('goal.edit');
         Route::delete('/deleteGoal/{goal:id}', [App\Http\Controllers\admin\GoalsController::class, 'destroy'])->name('goal.destroy');
+
+        Route::get('/grades', [App\Http\Controllers\admin\GradesController::class, 'index'])->name('grades.list');
+        Route::get('/addGrade', [App\Http\Controllers\admin\GradesController::class, 'create'])->name('add.grade');
+        Route::post('/addGrade', [App\Http\Controllers\admin\GradesController::class, 'store'])->name('add.grade');
+        Route::delete('/deleteGrade/{grade:id}', [App\Http\Controllers\admin\GradesController::class, 'destroy'])->name('grade.destroy');
+
+
+        Route::get('/members', [App\Http\Controllers\admin\MembersController::class, 'index'])->name('members.list');
+        Route::get('/addMember', [App\Http\Controllers\admin\MembersController::class, 'create'])->name('add.member');
+        Route::post('/addMember', [App\Http\Controllers\admin\MembersController::class, 'store'])->name('add.member');
+        Route::delete('/deleteMember/{member:id}', [App\Http\Controllers\admin\MembersController::class, 'destroy'])->name('member.destroy');
     });
 });
 

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateGoalsTable extends Migration
+class CreateMembersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,16 @@ class CreateGoalsTable extends Migration
      */
     public function up()
     {
-        Schema::create('goals', function (Blueprint $table) {
+        Schema::create('members', function (Blueprint $table) {
             $table->id();
-            $table->string("description")->nullable(false);
-            $table->enum('lang', ['ar', 'en'])->default('ar');
+            $table->string("name");
+            $table->string("phone");
+            $table->string('email')->unique();
+            $table->foreignId('grade_id');
             $table->timestamps();
             $table->softDeletes();
+
+            $table->foreign('grade_id')->references('id')->on('grades')->onDelete('cascade');
         });
     }
 
@@ -29,6 +33,6 @@ class CreateGoalsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('goals');
+        Schema::dropIfExists('members');
     }
 }
