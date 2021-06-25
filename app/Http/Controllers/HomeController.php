@@ -41,7 +41,7 @@ class HomeController extends Controller
     public function logoCover(Request $request)
     {
         request()->validate([
-            'logo_cover' => ['required', 'image', 'mimes:png,jpg,jpeg,svg']
+            'logo_cover' => ['required', 'image', 'mimes:png,jpg,jpeg,svg', 'max:5000']
         ]);
         if (request('logo_cover')) {
             App_setting::where('key', 'logo_cover')->first()->update([

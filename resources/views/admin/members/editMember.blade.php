@@ -32,8 +32,7 @@
                       input.parentElement.querySelector("#avatar_changed").value="true"
                     }
                 </script>
-                {{-- 0658732691 --}}
-
+                
 
                 {{-- name --}}
                 <div class="form-group">

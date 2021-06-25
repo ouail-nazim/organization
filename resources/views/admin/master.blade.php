@@ -129,6 +129,32 @@
                 </li> 
               </ul>
             </li> 
+
+            <li class="nav-item has-treeview">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-newspaper"></i>
+                <p>
+                  News
+                  <i class="right fas fa-angle-left"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="{{route("admin.news.list")}}" class="nav-link">
+                    <i class="fas fa-list nav-icon"></i>
+                    <p>News list</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="{{route("admin.add.news")}}" class="nav-link">
+                    <i class="fas fa-plus-circle nav-icon"></i>
+                    <p>Add News</p>
+                  </a>
+                </li>
+              </ul>
+            </li> 
+
+
             <li class="nav-item">
               <a href="{{route("admin.setting")}}" class="nav-link">
                 <i class="nav-icon fas fa-cogs"></i>
@@ -145,6 +171,10 @@
 @endsection
 
 @yield('main-content')
+
+<a id="back-to-top" href="#" class="btn btn-success back-to-top" role="button" aria-label="Scroll to top">
+  <i class="fas fa-chevron-up"></i>
+</a>
 
 @section('footer')
     <strong>Copyright &copy; 2020-2021 <a href="#" class="text-success" >{{setting('app_name')}}</a>.</strong>

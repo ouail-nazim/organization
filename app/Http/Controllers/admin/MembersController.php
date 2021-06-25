@@ -74,6 +74,7 @@ class MembersController extends Controller
             $member->clearMediaCollection("memeber_avatar");
             $member->addMedia(request('avatar'))->toMediaCollection("memeber_avatar");
         }
+
         return redirect()->route("admin.members.list");
     }
     function destroy(Member $member)
