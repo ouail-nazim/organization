@@ -41,6 +41,13 @@ Route::prefix('/admin')->group(function () {
         Route::get('/editNews/{news:id}', [App\Http\Controllers\admin\NewsController::class, 'edit'])->name('news.edit');
         Route::put('/editNews/{news:id}', [App\Http\Controllers\admin\NewsController::class, 'update'])->name('news.edit');
         Route::delete('/deleteNews/{news:id}', [App\Http\Controllers\admin\NewsController::class, 'destroy'])->name('news.destroy');
+        // meetings routes
+        Route::get('/meetings', [App\Http\Controllers\admin\MeetingsController::class, 'index'])->name('meetings.list');
+        Route::get('/addMeeting', [App\Http\Controllers\admin\MeetingsController::class, 'create'])->name('add.meetings');
+        Route::post('/addMeeting', [App\Http\Controllers\admin\MeetingsController::class, 'store'])->name('add.meetings');
+        Route::get('/editMeeting/{meeting:id}', [App\Http\Controllers\admin\MeetingsController::class, 'edit'])->name('meeting.edit');
+        Route::put('/editMeeting/{meeting:id}', [App\Http\Controllers\admin\MeetingsController::class, 'update'])->name('meeting.edit');
+        Route::delete('/deleteMeeting/{meeting:id}', [App\Http\Controllers\admin\MeetingsController::class, 'destroy'])->name('meeting.destroy');
     });
 });
 

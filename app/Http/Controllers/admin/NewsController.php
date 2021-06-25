@@ -25,8 +25,8 @@ class NewsController extends Controller
             'cover' => ['required', 'image', 'mimes:png,jpg,jpeg,svg', 'max:2000'],
             'ar_title' => ['required', 'string', 'max:50'],
             'en_title' => ['required', 'string', 'max:50'],
-            'ar_description' => ['required', 'string', 'max:255'],
-            'en_description' => ['required', 'string', 'max:255'],
+            'ar_description' => ['required', 'string', 'max:1000'],
+            'en_description' => ['required', 'string', 'max:1000'],
         ]);
 
         $news = News::create([
@@ -54,8 +54,8 @@ class NewsController extends Controller
             'cover' => ['image', 'mimes:png,jpg,jpeg,svg', 'max:1000'],
             'ar_title' => ['required', 'string', 'max:150'],
             'en_title' => ['required', 'string', 'max:150'],
-            'ar_description' => ['required', 'string', 'max:255'],
-            'en_description' => ['required', 'string', 'max:255'],
+            'ar_description' => ['required', 'string', 'max:1000'],
+            'en_description' => ['required', 'string', 'max:1000'],
         ]);
 
         // get changed data

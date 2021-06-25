@@ -60,6 +60,7 @@
         <!-- Sidebar Menu -->
         <nav class="mt-2">
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">     
+            {{-- goals --}}
             <li class="nav-item has-treeview">
               <a href="#" class="nav-link">
                 <i class="nav-icon fas fa-bullseye"></i>
@@ -83,6 +84,7 @@
                 </li>
               </ul>
             </li>
+            {{-- members && grads --}}
             <li class="nav-item has-treeview">
               <a href="#" class="nav-link">
                 <i class="nav-icon fas fa-users-cog"></i>
@@ -129,7 +131,7 @@
                 </li> 
               </ul>
             </li> 
-
+            {{-- news --}}
             <li class="nav-item has-treeview">
               <a href="#" class="nav-link">
                 <i class="nav-icon fas fa-newspaper"></i>
@@ -153,8 +155,31 @@
                 </li>
               </ul>
             </li> 
-
-
+            {{-- meetings --}}
+            <li class="nav-item has-treeview">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-handshake"></i>
+                <p>
+                  Meetings
+                  <i class="right fas fa-angle-left"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="{{route("admin.meetings.list")}}" class="nav-link">
+                    <i class="fas fa-list nav-icon"></i>
+                    <p>Meetings list</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="{{route("admin.add.meetings")}}" class="nav-link">
+                    <i class="fas fa-plus-circle nav-icon"></i>
+                    <p>Add Meeting</p>
+                  </a>
+                </li>
+              </ul>
+            </li> 
+            {{-- Setting --}}
             <li class="nav-item">
               <a href="{{route("admin.setting")}}" class="nav-link">
                 <i class="nav-icon fas fa-cogs"></i>
