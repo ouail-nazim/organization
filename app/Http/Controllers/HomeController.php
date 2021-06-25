@@ -40,7 +40,6 @@ class HomeController extends Controller
     }
     public function logoCover(Request $request)
     {
-
         request()->validate([
             'logo_cover' => ['required', 'image', 'mimes:png,jpg,jpeg,svg']
         ]);
@@ -50,12 +49,5 @@ class HomeController extends Controller
             ]);
         }
         return redirect()->back();
-
-
-
-
-        // $data = $request->validate(['value' => 'required']);
-        // App_setting::findOrFail($id)->update($data);
-        // return redirect()->back();
     }
 }

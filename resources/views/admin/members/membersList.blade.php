@@ -39,7 +39,8 @@
                         </div>
                         <div class="card-footer">
                             <div class="text-right">
-                            <a href="#" class="btn btn-sm btn-primary">                                
+                            
+                            <a href="{{route('admin.member.edit',['member'=>$member->id])}}"  class="btn btn-sm btn-primary">
                                 <i class="fas fa-edit mx-1"></i>Edit
                             </a>
                             

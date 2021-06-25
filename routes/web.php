@@ -31,6 +31,8 @@ Route::prefix('/admin')->group(function () {
         Route::get('/members', [App\Http\Controllers\admin\MembersController::class, 'index'])->name('members.list');
         Route::get('/addMember', [App\Http\Controllers\admin\MembersController::class, 'create'])->name('add.member');
         Route::post('/addMember', [App\Http\Controllers\admin\MembersController::class, 'store'])->name('add.member');
+        Route::get('/editMember/{member:id}', [App\Http\Controllers\admin\MembersController::class, 'edit'])->name('member.edit');
+        Route::put('/editMember/{member:id}', [App\Http\Controllers\admin\MembersController::class, 'update'])->name('member.edit');
         Route::delete('/deleteMember/{member:id}', [App\Http\Controllers\admin\MembersController::class, 'destroy'])->name('member.destroy');
     });
 });
