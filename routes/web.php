@@ -48,6 +48,15 @@ Route::prefix('/admin')->group(function () {
         Route::get('/editMeeting/{meeting:id}', [App\Http\Controllers\admin\MeetingsController::class, 'edit'])->name('meeting.edit');
         Route::put('/editMeeting/{meeting:id}', [App\Http\Controllers\admin\MeetingsController::class, 'update'])->name('meeting.edit');
         Route::delete('/deleteMeeting/{meeting:id}', [App\Http\Controllers\admin\MeetingsController::class, 'destroy'])->name('meeting.destroy');
+        // mailbox routes
+        Route::get('/inbox', [App\Http\Controllers\admin\InboxController::class, 'inbox'])->name('mailbox.inbox');
+        Route::get('/inbox/favorite', [App\Http\Controllers\admin\InboxController::class, 'favorite'])->name('mailbox.favorite');
+        Route::get('/inbox/readed', [App\Http\Controllers\admin\InboxController::class, 'readed'])->name('mailbox.readed');
+        Route::get('/inbox/sent', [App\Http\Controllers\admin\InboxController::class, 'sent'])->name('mailbox.sent');
+        Route::get('/inbox/trash', [App\Http\Controllers\admin\InboxController::class, 'trashed'])->name('mailbox.trash');
+        Route::get('/composer', [App\Http\Controllers\admin\InboxController::class, 'composer'])->name('mailbox.composer');
+        Route::post('/composer', [App\Http\Controllers\admin\InboxController::class, 'sendMail'])->name('mailbox.composer');
+        Route::delete('/deleteMessage/{message:id}', [App\Http\Controllers\admin\InboxController::class, 'destroy'])->name('mailbox.destroy');
     });
 });
 

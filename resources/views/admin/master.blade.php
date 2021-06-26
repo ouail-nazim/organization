@@ -179,6 +179,31 @@
                 </li>
               </ul>
             </li> 
+            {{-- mailbox --}}
+            <li class="nav-item has-treeview">
+              <a href="#" class="nav-link">
+                <i class="nav-icon far fa-envelope"></i>
+                <p>
+                  Mailbox
+                  <i class="right fas fa-angle-left"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="{{route("admin.mailbox.inbox")}}" class="nav-link">
+                    <i class="fas fa-inbox nav-icon"></i>
+                    <p>Inbox</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="{{route("admin.mailbox.composer")}}" class="nav-link">
+                    <i class="fas fa-paper-plane nav-icon"></i>
+                    <p>Composer</p>
+                  </a>
+                </li>
+                
+              </ul>
+            </li> 
             {{-- Setting --}}
             <li class="nav-item">
               <a href="{{route("admin.setting")}}" class="nav-link">
