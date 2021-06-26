@@ -4,7 +4,10 @@ namespace App\Http\Controllers\guest;
 
 use App\Http\Controllers\Controller;
 use App\Models\Goals;
+use App\Models\News;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 
 class HomeController extends Controller
 {
@@ -14,7 +17,10 @@ class HomeController extends Controller
     }
     function news()
     {
-        return view("guest.news");
+
+        return view("guest.news")->with([
+            'news' => News::latest()->paginate(6)
+        ]);;
     }
     function goals()
     {

@@ -7,53 +7,58 @@
     </div>
     <!-- page body -->
     <section class="my-3 ">
-      <div class="flex flex-col my-3">
+      	
+
+		@foreach ($news as $item)
+			<div class="flex flex-col my-3">
 				<div class="w-full h-96 shadow-md ">
-					<img src="/images/bg.jpg" class="w-full h-full object-center rounded" alt="news-image">
+					<img src="{{$item->cover}}" class="w-full h-full object-center rounded" alt="news-image">
 				</div>
 				<p class="mt-2 text-gray-500 font-medium text-base {{textSide()}}">
-					الثلاثاء، 15 يونيو 2021
+					{{getDateString($item->created_at)}}
 				</p>
 				<p class="py-2 text-black font-semibold text-xl {{textSide()}}">
-					وعند موافقه العميل المبدئيه على التصميم يتم ازالة هذا النص من التصميم ويتم وضع النصوص النهائية
-					المطلوبة للتصميم ويقول البعض ان وضع النصوص التجريبية بالتصميم قد تشغل المشاهد عن وضع الكثير من
-					الملاحظات او الانتقادات للتصميم الاساسي
+					@if(isRTL())
+						{{$item->ar_title}}
+					@else 
+						{{$item->en_title}}
+					@endif
 				</p>
 				<div class="{{textSide()}} @if(isRTL())flex flex-row-reverse @else flex-row @endif" >
 					<a href="#"
 						class="btn group bg-red my-2 text-white px-3 py-2 font-medium rounded text-md hover:bg-red-500 focus:outline-none ">
-						<span class="group-hover:text-gray-100 ">اقرأ المقال</span>
+						<span class="group-hover:text-gray-100 ">{{__("read more")}}</span>
 					</a>
-          <button type="button"
-						class="bg-white items-center border-none rounded-md px-3 py-2 opacity-50 hover:opacity-100 focus:outline-none focus:border-green-400"
-						data-toggle="modal" data-target="#news2">
-						<i class="fas fa-share    "></i>
+					<button type="button"
+							class="bg-white items-center border-none rounded-md px-3 py-2 opacity-50 hover:opacity-100 focus:outline-none focus:border-green-400"
+							data-toggle="modal" data-target="#news{{$item->id}}">
+							<i class="fas fa-share    "></i>
 					</button>
 					<!-- Modal -->
-					<div class="modal fade" id="news2" tabindex="-1" aria-labelledby="exampleModalLabel"
-						aria-hidden="true">
+					<div class="modal fade" id="news{{$item->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 						<div class="modal-dialog modal-dialog-centered">
 							<div class="modal-content">
 								<div class="modal-body">
 									<div class="form-group">
-										<label for="recipient-name" class="col-form-label"> الرابط </label>
-										<input readonly class="form-control focus:outline-none focus:ring-0"
-											id="recipient-name" value="{{asset("/news")}}">
+										<label for="recipient-name" class="col-form-label">{{__("link")}}  </label>
+										<input readonly 
+											class="form-control focus:outline-none focus:ring-0"
+											id="recipient-name" 
+											value="{{asset("/news/".$item->id)}}">
 									</div>
 								</div>
 								<div class="modal-footer border-none">
 									<a class="text-gray-500 mx-2 cursor-pointer hover:text-gray-700"
-										data-dismiss="modal">غلق</a>
+										data-dismiss="modal">{{__("close")}}</a>
 									<button onclick="copyLink(this)" type="button"
-										class="btn bg-red text-white">نسخ</button>
+										class="btn bg-red text-white">{{__("copy")}}</button>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-
-
+			</div>	
+		@endforeach
 
 			<!-- pagination -->
 			<nav class="flex flex-row justify-center">

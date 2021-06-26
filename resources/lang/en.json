@@ -12,6 +12,9 @@
     "mobile number":"Mobile Number",
     "phone number":"Phone Number",
     "email":"Email",
-    "address":"Address"
+    "address":"Address",
+    "link":"Link",
+    "close":"Close",
+    "copy":"Copy"
 }
     
