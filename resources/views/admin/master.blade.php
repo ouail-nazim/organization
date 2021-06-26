@@ -24,17 +24,16 @@
 @endsection
 {{-- content_top_nav_right --}}
 @section('content_top_nav_right')
-    <form class="form-inline ml-3">
-        {{-- @csrf --}}
-        <div class="input-group input-group-sm">
-        <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
-        <div class="input-group-append">
-            <button class="btn btn-navbar" type="submit">
-            <i class="fas fa-search"></i>
-            </button>
-        </div>
-        </div>
-  </form>
+
+  <a class="nav-link" href="{{route("admin.mailbox.inbox")}}">
+    <i class="far fa-comments"></i>
+    @if(\App\Models\Message::where('type', 'receive')->where("isReaded", 0)->count() > 0)
+      <span class="badge badge-danger navbar-badge">
+        {{\App\Models\Message::where('type', 'receive')->where("isReaded", 0)->count()}}
+      </span>
+    @endif
+  </a>  
+
 @endsection
 @section('usermenu_header')
   <a href="#" class="dropdown-item docs-creator m-1">
@@ -184,7 +183,7 @@
               <a href="#" class="nav-link">
                 <i class="nav-icon far fa-envelope"></i>
                 <p>
-                  Mailbox
+                  Mailbox 
                   <i class="right fas fa-angle-left"></i>
                 </p>
               </a>
@@ -222,16 +221,16 @@
 
 @yield('main-content')
 
-<a id="back-to-top" href="#" class="btn btn-success back-to-top" role="button" aria-label="Scroll to top">
-  <i class="fas fa-chevron-up"></i>
-</a>
+
 
 @section('footer')
+   
     <strong>Copyright &copy; 2020-2021 <a href="#" class="text-success" >{{setting('app_name')}}</a>.</strong>
-        All rights reserved.
+    All rights reserved.
     <div class="float-right d-none d-sm-inline-block">
         <b>Version</b> {{setting('app_version')}}
     </div>
+   
 @endsection
 
 @section('js')

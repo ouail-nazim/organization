@@ -41,7 +41,6 @@
         // set today date 
         const lang = "{!! currentLocale() !!}";
         const getTodayDate = format => {
-          debugger
           var date = new Date();
           options = { weekday: 'long', year: 'numeric', month: 'short', day: 'numeric', };
           return date.toLocaleDateString(format, options);

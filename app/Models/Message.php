@@ -24,5 +24,6 @@ class Message extends Model implements HasMedia
         'message',
         'isReaded',
         'isFavorite',
+        'type',
     ];
 }

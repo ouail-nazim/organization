@@ -18,7 +18,7 @@
     <section class="content">
         <div class="row">
           <div class="col-md-3">
-            <a href="compose.html" class="btn btn-success btn-block mb-3">Compose</a>
+            <a href="{{route('admin.mailbox.composer')}}" class="btn btn-success btn-block mb-3">Compose</a>
             @include('admin.mailbox.folders')
           </div>
           <!-- /.col -->
@@ -82,8 +82,19 @@
                   <table class="table table-hover table-striped">
                     <tbody>
                     @foreach ($messages as $item)
-                        <tr class="@if($item->isReaded) text-black-50 @else font-weight-bold @endif">
-                            <td class="mailbox-star"><a href="#add{{$item->id}}"><i class=" @if($item->isFavorite) fas @else far @endif  fa-star text-warning"></i></a></td>
+                        <tr onclick="readMessage(this)"  href="showMessage/{{$item->id}}" role="button" class="@if($item->isReaded) text-black-50 @else font-weight-bold @endif">
+                            @if ($item->type != "sent")
+                              <td class="mailbox-star">
+                                <form action="{{route("admin.mailbox.like",["message"=>$item->id])}}" method="post">
+                                    @csrf
+                                    @method('put')
+                                    <button type="submit" class="btn bg-transparent">
+                                      <i class=" @if($item->isFavorite) fas @else far @endif  fa-star text-warning"></i>
+                                    </button>
+                                </form>                                
+                              </td>
+                            @endif
+                            
                             <td class="mailbox-name">{{$item->firstName }}</td>
                             <td class="mailbox-subject">{{$item->subject}}
 
@@ -105,7 +116,11 @@
                       </tr>
                     @endforeach
                     
-                    
+                    <script type="text/javascript">
+                        const readMessage = tr =>{
+                          location.href=location.origin+'/admin/'+tr.getAttribute("href")
+                        }
+                    </script>
                     </tbody>
                   </table>
                 </div>
