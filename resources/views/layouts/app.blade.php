@@ -38,6 +38,14 @@
     integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
     crossorigin="anonymous"></script>
     <script type="text/javascript">
+
+        window.document.addEventListener('click',e=>{
+          if(e.target.getAttribute("id")!=="showSideBar"){
+            if(e.target.parentElement.parentElement.getAttribute("id")!=="sideBar"){
+              closeSideBar()
+            }
+          }
+        })
         // set today date 
         const lang = "{!! currentLocale() !!}";
         const getTodayDate = format => {
@@ -60,6 +68,27 @@
             header.classList.remove("p-2");
           }
         };
+
+        function showSideBar() {
+          const sideBar=document.querySelector("#sideBar")
+         
+          if(sideBar.classList.contains("right-full")){
+            sideBar.classList.replace("right-full","right-0")
+          }
+          if(sideBar.classList.contains("left-full")){
+            sideBar.classList.replace("left-full","left-0")
+          }
+        }
+        function closeSideBar() {
+          const sideBar=document.querySelector("#sideBar")
+          if(sideBar.classList.contains("right-0")){
+            sideBar.classList.replace("right-0","right-full")
+          }
+          if(sideBar.classList.contains("left-0")){
+            sideBar.classList.replace("left-0","left-full")
+          }
+        }
+
       </script>
 
     @yield('javascript')

@@ -1,4 +1,4 @@
-<nav id="topNavbar" class="hidden md:flex py-1 @if(isRTL()) flex-row @else flex-row-reverse @endif  items-center justify-between border-b-2 border-gray-100">
+<nav id="topNavbar" class="flex py-1 @if(isRTL()) flex-row @else flex-row-reverse @endif  items-center justify-between border-b-2 border-gray-100">
       <div class="dropdown @if(!isRTL()) dropleft  @endif ">
         <a class="text-md items-center justify-center flex text-gray-400 nav-link dropdown-toggle" href="#"
           role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
@@ -18,7 +18,7 @@
         </div>
       </div>
       <div>
-        <ul class="py-2 flex @if(isRTL()) flex-row-reverse @endif  ">
+        <ul class="hidden md:flex py-2  @if(isRTL()) flex-row-reverse @endif  ">
           <li class="mx-2">
             <a href="{{route('home')}}" class="text-black nav-link cursor-pointer">{{__('home')}}</a>
           </li>
@@ -38,6 +38,15 @@
             <a href="{{route('contact_us')}}"  class="text-black nav-link cursor-pointer">{{__('contact_us')}}</a>
           </li>
         </ul>
+        <ul class="flex md:hidden py-2  @if(isRTL()) flex-row-reverse @endif  ">
+          <li id="showSideBar" class="mx-2">
+            <button type="button" onclick="showSideBar()" id="showSideBar"  class="text-black nav-link cursor-pointer">
+              <i class="fas fa-align-justify" id="showSideBar"></i>
+            </button>
+          </li>
+          
+        </ul>
+        
 
       </div>
 </nav>

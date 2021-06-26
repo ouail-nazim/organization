@@ -55,6 +55,7 @@ Route::prefix('/admin')->group(function () {
         Route::get('/inbox/sent', [App\Http\Controllers\admin\InboxController::class, 'sent'])->name('mailbox.sent');
         Route::get('/inbox/trash', [App\Http\Controllers\admin\InboxController::class, 'trashed'])->name('mailbox.trash');
         Route::get('/composer', [App\Http\Controllers\admin\InboxController::class, 'composer'])->name('mailbox.composer');
+        #FIXME:send email to Gmail not working
         Route::post('/composer', [App\Http\Controllers\admin\InboxController::class, 'sendMail'])->name('mailbox.composer');
         Route::delete('/deleteMessage/{message:id}', [App\Http\Controllers\admin\InboxController::class, 'destroy'])->name('mailbox.destroy');
         Route::get('/showMessage/{message:id}', [App\Http\Controllers\admin\InboxController::class, 'show'])->name('mailbox.show');

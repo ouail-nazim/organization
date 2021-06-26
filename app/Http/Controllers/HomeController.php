@@ -3,6 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\App_setting;
+use App\Models\Goals;
+use App\Models\Grade;
+use App\Models\Meeting;
+use App\Models\Member;
+use App\Models\Message;
+use App\Models\News;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
@@ -26,7 +32,16 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('admin.home');
+        return view('admin.home')->with(
+            [
+                "goals" => Goals::count(),
+                "members" => Member::count(),
+                "grades" => Grade::count(),
+                "news" => News::count(),
+                "meetings" => Meeting::count(),
+                "emails" => Message::where('type', 'receive')->count(),
+            ]
+        );
     }
     public function setting()
     {
