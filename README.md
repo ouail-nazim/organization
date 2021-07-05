@@ -1,5 +1,3 @@
-## run this commends in the terminal
-
 ```
 composer install
 ```
@@ -20,10 +18,14 @@ npm run dev
 php artisan key:generate
 ```
 
-## you need to add you BD in your .env file
+## config your .env file (bd , key , app ...)
 
 ```
 php artisan migrate
+```
+
+```
+php artisan db:seed
 ```
 
 ```
