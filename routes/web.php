@@ -68,6 +68,10 @@ Route::prefix('/admin')->group(function () {
         Route::get('/slides', [App\Http\Controllers\HomeController::class, 'slides'])->name('slide');
         Route::post('/slides', [App\Http\Controllers\HomeController::class, 'storeSlides'])->name('slide');
         Route::delete('/deleteslides/{id}', [App\Http\Controllers\HomeController::class, 'deleteSlides'])->name('deleteslides');
+
+
+        Route::get('/updatePassword', [App\Http\Controllers\HomeController::class, 'update'])->name('updatePassword');
+        Route::post('/updatePassword', [App\Http\Controllers\HomeController::class, 'updatePassword'])->name('updatePassword');
     });
 });
 

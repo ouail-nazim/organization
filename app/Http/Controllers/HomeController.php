@@ -13,6 +13,7 @@ use App\Models\Slides;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class HomeController extends Controller
 {
@@ -99,5 +100,33 @@ class HomeController extends Controller
     {
         Slides::find($id)->delete();
         return redirect()->back();
+    }
+    function update()
+    {
+        return view('admin.updatePassword');
+    }
+    function updatePassword(Request $request)
+    {
+
+        $request->validate([
+            'oldpassword' => ['required', 'min:8', 'max:20'],
+            'password' => ['required', 'min:8', 'max:20', 'confirmed'],
+        ]);
+
+
+        $user = auth()->user();
+        if (!Auth::guard('web')->attempt(
+            [
+                'email' => $user->email,
+                'password' => $request->oldpassword
+            ]
+        )) {
+            return redirect()->back();
+        } else {
+            $user->forceFill([
+                'password' => bcrypt($request->password)
+            ])->update();
+            return redirect()->route('admin.home')->with('status', 'password updated');
+        }
     }
 }

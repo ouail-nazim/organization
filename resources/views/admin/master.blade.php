@@ -36,7 +36,7 @@
 
 @endsection
 @section('usermenu_header')
-  <a href="#" class="dropdown-item docs-creator m-1">
+  <a href="{{route('admin.updatePassword')}}" class="dropdown-item docs-creator m-1">
     <i class="fas fa-cogs mr-2"></i> Modifier mon profile
   </a>
 @endsection
