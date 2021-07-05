@@ -29,6 +29,10 @@ php artisan db:seed
 ```
 
 ```
+php artisan storage:link
+```
+
+```
 composer dump-autoload
 ```
 
