@@ -29,6 +29,6 @@ class News extends Model implements HasMedia
         if ($this->hasMedia("news_cover")) {
             return $this->getFirstMediaUrl("news_cover");
         }
-        return env("APP_URL") . "/images/meeting.jpg";
+        return asset("/images/meeting.jpg");
     }
 }

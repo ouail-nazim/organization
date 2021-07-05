@@ -35,6 +35,6 @@ class Member extends Model implements HasMedia
         if ($this->hasMedia("memeber_avatar")) {
             return $this->getFirstMediaUrl("memeber_avatar");
         }
-        return env("APP_URL") . "/images/member.jpeg";
+        return asset("/images/member.jpeg");
     }
 }

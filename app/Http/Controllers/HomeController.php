@@ -9,6 +9,7 @@ use App\Models\Meeting;
 use App\Models\Member;
 use App\Models\Message;
 use App\Models\News;
+use App\Models\Slides;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
@@ -63,6 +64,40 @@ class HomeController extends Controller
                 "value" => "/storage/" . request('logo_cover')->store('logo_covers')
             ]);
         }
+        return redirect()->back();
+    }
+    public function boss_avatar(Request $request)
+    {
+        request()->validate([
+            'boss_avatar' => ['required', 'image', 'mimes:png,jpg,jpeg,svg', 'max:5000']
+        ]);
+        if (request('boss_avatar')) {
+            App_setting::where('key', 'boss_avatar')->first()->update([
+                "value" => "/storage/" . request('boss_avatar')->store('boss_avatar')
+            ]);
+        }
+        return redirect()->back();
+    }
+    function slides()
+    {
+        return view('admin.slides')->with(["slides" => Slides::all()]);
+    }
+
+    function storeSlides(Request $request)
+    {
+        request()->validate([
+            'slide' => ['required', 'image', 'mimes:png,jpg,jpeg,svg', 'max:5000']
+        ]);
+        if (request('slide')) {;
+            Slides::create([
+                'cover' =>  "/storage/" . request('slide')->store('slide')
+            ]);
+        }
+        return redirect()->back();
+    }
+    function deleteSlides($id)
+    {
+        Slides::find($id)->delete();
         return redirect()->back();
     }
 }

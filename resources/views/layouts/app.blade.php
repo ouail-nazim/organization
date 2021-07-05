@@ -5,7 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>{{setting("app_name")}}</title>
+    <title>
+          @if(isRTL()) 
+            {{setting('app_name_ar')}}
+          @else 
+            {{setting('app_name_en')}}
+          @endif  
+    </title>
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" ></script>
     <!-- Styles -->
@@ -15,6 +21,7 @@
             --secondary_color:{{setting('secondary_color')}};
         }
     </style>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     <link rel="stylesheet" href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/main.css') }}" rel="stylesheet">
@@ -22,7 +29,7 @@
     <link href="{{ asset('css/snackbar.css') }}" rel="stylesheet">
     
     <link rel="shortcut icon" href="{{setting('logo_cover')}}" type="image/x-icon"/>
-    
+    @yield('style')
 </head>
 <body>
   

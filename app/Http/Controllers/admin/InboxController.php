@@ -81,12 +81,12 @@ class InboxController extends Controller
 
         #FIXME:Failed to authenticate on SMTP server with username
 
-        /* 
-            Mail::to("ouail.cheikhboukal@univ-constantine2.dz")->send(new MessageMail([
-                'subject' => request('subject'),
-                'message' => request('message'),
-            ])); 
-        */
+
+        // Mail::to("ouail.cheikhboukal@univ-constantine2.dz")->send(new MessageMail([
+        //     'subject' => request('subject'),
+        //     'message' => request('message'),
+        // ])); 
+
 
         Message::create([
             'firstName' => setting("app_name") . " Administrator",

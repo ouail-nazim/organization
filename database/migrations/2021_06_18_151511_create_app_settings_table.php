@@ -16,7 +16,7 @@ class CreateAppSettingsTable extends Migration
         Schema::create('app_settings', function (Blueprint $table) {
             $table->id();
             $table->string("key");
-            $table->string("value");
+            $table->text("value");
         });
     }
 

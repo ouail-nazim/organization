@@ -7,8 +7,7 @@
 @else
     @php( $dashboard_url = $dashboard_url ? url($dashboard_url) : '' )
 @endif
-
-<a href="{{ $dashboard_url }}"
+<a href="{{ $dashboard_url }}" 
     @if($layoutHelper->isLayoutTopnavEnabled())
         class="navbar-brand {{ config('adminlte.classes_brand') }}"
     @else
@@ -24,7 +23,7 @@
 
     {{-- Brand text --}}
     <span class="brand-text font-weight-light {{ config('adminlte.classes_brand_text') }}">
-        {{setting('app_name')}}
+        {{setting('app_name_abrv')}}
     </span>
 
 </a>

@@ -1,6 +1,8 @@
 <?php
 
 use App\Models\Member;
+use App\Models\News;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('/admin')->group(function () {
@@ -16,6 +18,7 @@ Route::prefix('/admin')->group(function () {
         Route::get('/setting', [App\Http\Controllers\HomeController::class, 'setting'])->name('setting');
         Route::put('/setting/{id}', [App\Http\Controllers\HomeController::class, 'editSetting'])->name('setting.edit');
         Route::put('/logo_cover', [App\Http\Controllers\HomeController::class, 'logoCover'])->name('update.logo_cover');
+        Route::put('/boss_avatar', [App\Http\Controllers\HomeController::class, 'boss_avatar'])->name('update.boss_avatar');
         // goals routes
         Route::get('/goals', [App\Http\Controllers\admin\GoalsController::class, 'index'])->name('goals.list');
         Route::get('/addGoal', [App\Http\Controllers\admin\GoalsController::class, 'create'])->name('add.goal');
@@ -61,14 +64,25 @@ Route::prefix('/admin')->group(function () {
         Route::get('/showMessage/{message:id}', [App\Http\Controllers\admin\InboxController::class, 'show'])->name('mailbox.show');
         Route::put('/likeMessage/{message:id}', [App\Http\Controllers\admin\InboxController::class, 'like'])->name('mailbox.like');
         Route::post('/getMessagePdf/{message:id}', [App\Http\Controllers\admin\InboxController::class, 'getPDF'])->name('mailbox.pdf');
+
+        Route::get('/slides', [App\Http\Controllers\HomeController::class, 'slides'])->name('slide');
+        Route::post('/slides', [App\Http\Controllers\HomeController::class, 'storeSlides'])->name('slide');
+        Route::delete('/deleteslides/{id}', [App\Http\Controllers\HomeController::class, 'deleteSlides'])->name('deleteslides');
     });
 });
 
 Route::redirect('/home', '/admin/home', 301);
 
 Route::get('/', [App\Http\Controllers\guest\HomeController::class, 'index'])->name('home');
+
 Route::get('/news', [App\Http\Controllers\guest\HomeController::class, 'news'])->name('news');
-Route::get('/goals', [App\Http\Controllers\guest\HomeController::class, 'goals'])->name('goals');
+Route::get('/news/{news:id}', [App\Http\Controllers\guest\HomeController::class, 'showNews'])->name('news.read');
+
 Route::get('/meetings', [App\Http\Controllers\guest\HomeController::class, 'meetings'])->name('meetings');
+Route::get('/meetings/{meeting:id}', [App\Http\Controllers\guest\HomeController::class, 'showMeeting'])->name('meetings.read');
+
+Route::get('/goals', [App\Http\Controllers\guest\HomeController::class, 'goals'])->name('goals');
+
 Route::get('/members', [App\Http\Controllers\guest\HomeController::class, 'members'])->name('members');
 Route::get('/contact_us', [App\Http\Controllers\guest\HomeController::class, 'contactUs'])->name('contact_us');
+Route::post('/sendMail', [App\Http\Controllers\guest\HomeController::class, 'sendMail'])->name('sendMail');

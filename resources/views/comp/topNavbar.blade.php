@@ -18,8 +18,8 @@
         </div>
       </div>
       <div>
-        <ul class="hidden md:flex py-2  @if(isRTL()) flex-row-reverse @endif  ">
-          <li class="mx-2">
+        <ul class="hidden md:flex py-2 @if(isRTL()) flex-row-reverse @endif  ">
+          <li class=" @if(isRTL()) ml-2 -mr-2 @else -ml-2 mr-2  @endif ">
             <a href="{{route('home')}}" class="text-black nav-link cursor-pointer">{{__('home')}}</a>
           </li>
           <li class="mx-2">

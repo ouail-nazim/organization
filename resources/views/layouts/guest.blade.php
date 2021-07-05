@@ -1,4 +1,7 @@
 @extends('layouts.app')
+@section('style')
+  @yield('mainStyle')    
+@endsection
 @section('content')
   @include('comp.topHeader')
   @include('comp.sideBar')

@@ -15,6 +15,19 @@
     "address":"Address",
     "link":"Link",
     "close":"Close",
-    "copy":"Copy"
+    "copy":"Copy",
+    "previous":"Previous",
+    "next":"Next",
+    "page":"Page",
+    "of":"of",
+    "msg_sent":"Your message has been sent to admin",
+    "not required":"not required",
+    "subject":"Subject",
+    "message":"Message",
+    "first name":"First name",
+    "last name":"Last name",
+    "send":"Send",
+    "cp":"Copyright 2022-2021 © All Rights Reserved"
+                                  
 }
     

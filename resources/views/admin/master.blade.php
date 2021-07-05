@@ -37,9 +37,6 @@
 @endsection
 @section('usermenu_header')
   <a href="#" class="dropdown-item docs-creator m-1">
-    <i class="fas fa-user mr-2"></i> Profile
-  </a>
-  <a href="#" class="dropdown-item docs-creator m-1">
     <i class="fas fa-cogs mr-2"></i> Modifier mon profile
   </a>
 @endsection
@@ -203,6 +200,15 @@
                 
               </ul>
             </li> 
+            {{-- Slides --}}
+            <li class="nav-item">
+              <a href="{{route("admin.slide")}}" class="nav-link">
+                <i class="nav-icon fas fa-images "></i>
+                <p>
+                  Slides
+                </p>
+              </a>
+            </li>          
             {{-- Setting --}}
             <li class="nav-item">
               <a href="{{route("admin.setting")}}" class="nav-link">

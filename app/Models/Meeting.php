@@ -32,6 +32,6 @@ class Meeting extends Model implements HasMedia
         if ($this->hasMedia("meeting_cover")) {
             return $this->getFirstMediaUrl("meeting_cover");
         }
-        return env("APP_URL") . "/images/meeting.jpg";
+        return asset("/images/bg.jpg");
     }
 }
